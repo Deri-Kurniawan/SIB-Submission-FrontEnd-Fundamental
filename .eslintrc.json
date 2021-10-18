@@ -1,6 +1,5 @@
 {
     "env": {
-        "commonjs": true,
         "es2021": true,
         "node": true
     },
@@ -8,8 +7,10 @@
         "airbnb-base"
     ],
     "parserOptions": {
-        "ecmaVersion": 13
+        "ecmaVersion": 12,
+        "sourceType": "module"
     },
     "rules": {
+        "linebreak-style":["error", "windows"]
     }
 }
