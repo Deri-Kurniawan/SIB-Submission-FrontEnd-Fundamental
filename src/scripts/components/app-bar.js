@@ -9,7 +9,7 @@ class AppBar extends HTMLElement {
 
   render() {
     this.innerHTML = `
-          <div class="container">
+          <div class="container sticky-top">
             <a class="navbar-brand" href="/">DeryMeal</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
