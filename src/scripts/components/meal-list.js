@@ -1,6 +1,10 @@
+import $ from 'jquery';
+
 class MealList extends HTMLElement {
     constructor() {
         super();
+        this.setAttribute("data-bs-toggle", "modal");
+        this.setAttribute("data-bs-target", "#detailMealModal");
         this.classList.add('row', 'row-cols-1', 'row-cols-2', 'row-cols-sm-3', 'row-cols-md-4', 'row-cols-lg-5', 'row-cols-xl-5', 'g-4');
     }
 
@@ -13,7 +17,8 @@ class MealList extends HTMLElement {
         this.innerHTML = '';
         this._meals.forEach((meal) => {
             const mealItemElement = document.createElement('meal-item');
-            mealItemElement.classList.add("col", 'ajax-loading');
+            mealItemElement.classList.add("col");
+            mealItemElement.setAttribute('data-mealid', meal.idMeal);
             mealItemElement.meal = meal;
             this.appendChild(mealItemElement);
         });
@@ -22,8 +27,13 @@ class MealList extends HTMLElement {
     set renderError(message) {
         this.innerHTML = '';
         this.innerHTML = `
-        <div class="alert alert-danger">
-            <h1 class="d-block">${message}</h1>
+        <div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center align-items-center w-100 error-toast">
+            <div class="toast-header">
+                <span class="me-auto">${message}</span>
+            </div>
+            <div class="toast-body">
+            
+            </div>
         </div>
         `;
     }
