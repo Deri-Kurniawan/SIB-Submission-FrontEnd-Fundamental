@@ -1,8 +1,7 @@
-/* eslint-disable no-undef */
 class AppBar extends HTMLElement {
   connectedCallback() {
     this.classList.add(
-      'navbar', 'navbar-expand-md', 'navbar-light', 'bg-light',
+      'navbar', 'navbar-expand-md', 'navbar-light', 'bg-light', 'sticky-top', 'top-0',
     );
     this.render();
   }
@@ -10,7 +9,7 @@ class AppBar extends HTMLElement {
   render() {
     this.innerHTML = `
           <div class="container">
-            <a class="navbar-brand" href="/">DeryMeal</a>
+            <a class="navbar-brand" href="/">Dery Meal</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
