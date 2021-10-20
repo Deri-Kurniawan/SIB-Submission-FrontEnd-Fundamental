@@ -29,14 +29,15 @@ class MealDetailModal extends HTMLElement {
                 <div class="modal-dialog modal-xl">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title text-uppercase" id="detailMealModalLabel"></h5>
-                            <button type="button" class="btn-close close-modal" data-bs-dismiss="modal"
+                            <h5 class="modal-title text-uppercase" id="detailMealModalLabel">No Data</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
                                 aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
+                        <h4>No Data</h4>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-outline-danger close-modal"
+                            <button type="button" class="btn btn-outline-danger"
                                 data-bs-dismiss="modal">Close</button>
                         </div>
                     </div>
@@ -50,14 +51,14 @@ class MealDetailModal extends HTMLElement {
         let params = new URL(this._meal.strYoutube).searchParams;
         let YTVideoID = params.get('v');
 
-        $('.modal-title').html(this._meal.strMeal);
-        $('.modal-body').html('');
-        $('.modal-body').append(`
+        $('meal-detail-modal .modal-title').html(this._meal.strMeal);
+        $('meal-detail-modal .modal-body').html('');
+        $('meal-detail-modal .modal-body').append(`
             <div class="row">
-                <div class="col-12 col-md-12 col-lg-4 col-xl-4 my-sm-3 my-md-3">
+                <div class="col-12 col-md-12 col-lg-4 col-xl-4 my-sm-2 my-md-2">
                     <img src="${this._meal.strMealThumb}" class="card-img-top" style="width:100%; height:100%; transform: scaleZ(-1);" alt="${this._meal.strMealThumb} Thumb"/>
                 </div>
-                <div class="col-12 col-md-12 col-lg-8 col-xl-8">
+                <div class="col-12 col-md-12 col-lg-8 col-xl-8 my-sm-2 my-md-2">
                     <div class="ratio ratio-16x9">
                       <iframe src="https://www.youtube.com/embed/${YTVideoID}" title="${this._meal.strMeal} Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
@@ -65,10 +66,10 @@ class MealDetailModal extends HTMLElement {
             </div>
             <div class="my-4">
                 <h4>Instructions</h3>
-                <p class="justify-align-center">${this._meal.strInstructions}</p>
+                <p style="text-indent: 3%">${this._meal.strInstructions || "-"}</p>
             
                 <div class="overflow-auto my-2">
-                <table class="table table-bordered text-center">
+                <table class="table table-bordered text-center align-middle shadow">
                     <tr>
                         <th class="bg-dark text-light">Ingredients</th>
                         ${this.eachObjectData("strIngredient") || "-"}
@@ -79,8 +80,8 @@ class MealDetailModal extends HTMLElement {
                     </tr>
                 </table>
                 </div>
-                <div class="overflow-auto my-2">
-                <table class="table table-bordered text-center">
+                <div class="overflow-auto my-2 shadow">
+                <table class="table table-bordered text-center align-middle">
                     <tr class="bg-dark text-light">
                         <th>Area</th>
                         <th>Category</th>
