@@ -23,6 +23,7 @@ class MealList extends HTMLElement {
     }
 
     set renderError(message) {
+
         this.removeAttribute('data-bs-toggle');
         this.removeAttribute('data-bs-target');
         this.innerHTML = '';
@@ -31,8 +32,7 @@ class MealList extends HTMLElement {
             <div class="toast-header">
                 <span class="me-auto">${message}</span>
             </div>
-            <div class="toast-body">
-            
+              <div class="toast-body">
             </div>
         </div>
         `;
