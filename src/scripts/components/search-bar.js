@@ -1,6 +1,6 @@
 class SearchBar extends HTMLElement {
   connectedCallback() {
-    this.classList.add('form-group', 'col-4', 'offset-4');
+    this.classList.add('mt-4');
     this.render();
   }
 
@@ -8,7 +8,7 @@ class SearchBar extends HTMLElement {
     this.innerHTML = `
       <form class="form-floating">
         <input type="search" class="form-control" id="inputSearchElement" value="" placeholder="Search recipe"/>
-        <label class="inputSearchElement">Search recipe</label>
+        <label class="inputSearchElement">Search recipe by food name</label>
       </form>
     `;
   }

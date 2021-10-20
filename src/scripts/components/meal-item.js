@@ -1,20 +1,20 @@
 class MealItem extends HTMLElement {
-    set meal(meal) {
-        this._meal = meal;
-        this.render();
-    }
+  set meal(meal) {
+    this._meal = meal;
+    this.render();
+  }
 
-    render() {
-        this.innerHTML = `
+  render() {
+    this.innerHTML = `
             <div class="card h-100">
-              <img src="${this._meal.strMealThumb}" class="card-img-top ajax-loading" alt="${this._meal.strMeal} Thumb">
+              <img src="${this._meal.strMealThumb}" class="card-img-top" alt="${this._meal.strMeal} Thumb">
               <div class="card-body">
-                <h5 class="card-title ajax-loading">${this._meal.strMeal}</h5>
-                <p class="card-text ajax-loading">${this._meal.strInstructions}</p>
+                <h5 class="card-title">${this._meal.strMeal}</h5>
+                <p class="card-text">Area : ${this._meal.strArea}</p>
               </div>
             </div>
         `;
-    }
+  }
 }
 
 customElements.define('meal-item', MealItem);

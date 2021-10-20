@@ -3,6 +3,7 @@ import '../components/app-bar';
 import '../components/search-bar';
 import '../components/meal-list';
 import '../components/meal-item';
+import '../components/meal-detail-modal';
 
 const main = () => {
     $('search-bar > form').on('submit', (e) => {
@@ -23,7 +24,7 @@ const main = () => {
                 if (responseJSON.meals != null) {
                     renderResult(responseJSON.meals);
                 } else {
-                    renderError(`Meal ${keyword} Not Found!`);
+                    renderError(`Keyword <strong>${keyword}</strong> Not Found!`);
                 }
             },
             error: (responseMessage) => {
@@ -33,10 +34,24 @@ const main = () => {
 
     });
 
+    $('meal-list').on('click', 'meal-item', function () {
+        const mealId = $(this).data('mealid');
+        $('.modal-body').html('');
+        $.ajax({
+            method: 'GET',
+            url: `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`,
+            success: (responseJSON) => {
+
+                document.querySelector('meal-detail-modal').meal = responseJSON.meals[0];
+
+            }
+        });
+    });
+
     $(document).ajaxStart(() => {
-        $('.ajax-loading').addClass('ajax-loading-start');
+        $('#loader').show();
     }).ajaxStop(() => {
-        $('.ajax-loading').removeClass('ajax-loading-start');
+        $('#loader').hide();
     });
 
 };

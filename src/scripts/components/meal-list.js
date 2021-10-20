@@ -11,19 +11,29 @@ class MealList extends HTMLElement {
 
     render() {
         this.innerHTML = '';
+        this.setAttribute('data-bs-toggle', 'modal');
+        this.setAttribute('data-bs-target', '#detailMealModal');
         this._meals.forEach((meal) => {
             const mealItemElement = document.createElement('meal-item');
-            mealItemElement.classList.add("col", 'ajax-loading');
+            mealItemElement.classList.add("col");
+            mealItemElement.setAttribute('data-mealid', meal.idMeal);
             mealItemElement.meal = meal;
             this.appendChild(mealItemElement);
         });
     }
 
     set renderError(message) {
+
+        this.removeAttribute('data-bs-toggle');
+        this.removeAttribute('data-bs-target');
         this.innerHTML = '';
         this.innerHTML = `
-        <div class="alert alert-danger">
-            <h1 class="d-block">${message}</h1>
+        <div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center align-items-center w-100 error-toast">
+            <div class="toast-header">
+                <span class="me-auto">${message}</span>
+            </div>
+              <div class="toast-body">
+            </div>
         </div>
         `;
     }
