@@ -71,7 +71,8 @@ const main = () => {
                             <h4>Instructions</h3>
                             <p class="justify-align-center">${meal.strInstructions}</p>
 
-                            <table class="table table-hover table-bordered text-center" style="vertical-align: middle;">
+                            <div class="overflow-auto my-2">
+                            <table class="table table-bordered text-center">
                                 <tr>
                                     <th class="bg-dark text-light">Ingredients</th>
                                     ${eachObjectData(meal, "strIngredient") || "-"}
@@ -81,8 +82,9 @@ const main = () => {
                                     ${eachObjectData(meal, "strMeasure") || "-"}
                                 </tr>
                             </table>
-
-                            <table class="table table-hover table-bordered text-center" style="vertical-align: middle;">
+                            </div>
+                            <div class="overflow-auto my-2">
+                            <table class="table table-bordered text-center">
                                 <tr class="bg-dark text-light">
                                     <th>Area</th>
                                     <th>Category</th>
@@ -94,7 +96,7 @@ const main = () => {
                                     <td>${meal.strTags || "-"}</td>
                                 </tr>
                             </table>
-                
+                            </div>
                         </div>
                     `);
                 }
