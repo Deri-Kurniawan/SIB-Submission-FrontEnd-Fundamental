@@ -1,10 +1,6 @@
-import $ from 'jquery';
-
 class MealList extends HTMLElement {
     constructor() {
         super();
-        this.setAttribute("data-bs-toggle", "modal");
-        this.setAttribute("data-bs-target", "#detailMealModal");
         this.classList.add('row', 'row-cols-1', 'row-cols-2', 'row-cols-sm-3', 'row-cols-md-4', 'row-cols-lg-5', 'row-cols-xl-5', 'g-4');
     }
 
@@ -15,6 +11,8 @@ class MealList extends HTMLElement {
 
     render() {
         this.innerHTML = '';
+        this.setAttribute('data-bs-toggle', 'modal');
+        this.setAttribute('data-bs-target', '#detailMealModal');
         this._meals.forEach((meal) => {
             const mealItemElement = document.createElement('meal-item');
             mealItemElement.classList.add("col");
@@ -25,6 +23,8 @@ class MealList extends HTMLElement {
     }
 
     set renderError(message) {
+        this.removeAttribute('data-bs-toggle');
+        this.removeAttribute('data-bs-target');
         this.innerHTML = '';
         this.innerHTML = `
         <div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center align-items-center w-100 error-toast">
