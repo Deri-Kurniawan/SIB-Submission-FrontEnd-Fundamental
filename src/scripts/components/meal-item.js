@@ -10,7 +10,7 @@ class MealItem extends HTMLElement {
               <img src="${this._meal.strMealThumb}" class="card-img-top" alt="${this._meal.strMeal} Thumb">
               <div class="card-body">
                 <h5 class="card-title">${this._meal.strMeal}</h5>
-                <p class="card-text">${this._meal.strInstructions}</p>
+                <p class="card-text">Area : ${this._meal.strArea}</p>
               </div>
             </div>
         `;
