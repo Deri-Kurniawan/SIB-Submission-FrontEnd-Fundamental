@@ -32,22 +32,21 @@ const main = () => {
             }
         });
 
-        $('meal-list').on('click', 'meal-item', function () {
-            const mealId = $(this).data('mealid');
-            $('.modal-body').html('');
-            $.ajax({
-                method: 'GET',
-                url: `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`,
-                success: (responseJSON) => {
-
-                    document.querySelector('meal-detail-modal').meal = responseJSON.meals[0];
-
-                }
-            });
-        });
-
     });
 
+    $('meal-list').on('click', 'meal-item', function () {
+        const mealId = $(this).data('mealid');
+        $('.modal-body').html('');
+        $.ajax({
+            method: 'GET',
+            url: `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`,
+            success: (responseJSON) => {
+
+                document.querySelector('meal-detail-modal').meal = responseJSON.meals[0];
+
+            }
+        });
+    });
 
     $(document).ajaxStart(() => {
         $('#loader').show();
