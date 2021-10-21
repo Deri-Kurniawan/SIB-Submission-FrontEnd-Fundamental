@@ -1,7 +1,7 @@
 class MealList extends HTMLElement {
     constructor() {
         super();
-        this.classList.add('row', 'row-cols-1', 'row-cols-2', 'row-cols-sm-3', 'row-cols-md-4', 'row-cols-lg-5', 'row-cols-xl-5', 'g-4');
+        this.classList.add('row', 'row-cols-1', 'row-cols-2', 'row-cols-sm-3', 'row-cols-md-4', 'row-cols-lg-5', 'row-cols-xl-5', 'g-3');
     }
 
     set meals(meals) {
@@ -10,9 +10,9 @@ class MealList extends HTMLElement {
     }
 
     render() {
-        this.innerHTML = '';
         this.setAttribute('data-bs-toggle', 'modal');
         this.setAttribute('data-bs-target', '#detailMealModal');
+        this.innerHTML = '';
         this._meals.forEach((meal) => {
             const mealItemElement = document.createElement('meal-item');
             mealItemElement.classList.add("col");
