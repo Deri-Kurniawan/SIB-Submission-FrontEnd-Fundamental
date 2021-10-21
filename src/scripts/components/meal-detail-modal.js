@@ -55,12 +55,12 @@ class MealDetailModal extends HTMLElement {
         $('meal-detail-modal .modal-body').html('');
         $('meal-detail-modal .modal-body').append(`
             <div class="row">
-                <div class="col-12 col-md-12 col-lg-4 col-xl-4 my-sm-2 my-md-2">
+                <div class="col-12 col-md-12 col-lg-4 col-xl-4 my-sm-2 my-md-2 shadow">
                     <a href="${this._meal.strMealThumb}" target="_blank" title="click to see full image">
                         <img src="${this._meal.strMealThumb}" class="card-img-top" style="width:100%; height:100%;" alt="${this._meal.strMealThumb} Thumb"/>
                     </a>
                 </div>
-                <div class="col-12 col-md-12 col-lg-8 col-xl-8 my-sm-2 my-md-2">
+                <div class="col-12 col-md-12 col-lg-8 col-xl-8 my-sm-2 my-md-2 shadow">
                     <div class="ratio ratio-16x9">
                       <iframe src="https://www.youtube.com/embed/${YTVideoID}" title="${this._meal.strMeal} Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>

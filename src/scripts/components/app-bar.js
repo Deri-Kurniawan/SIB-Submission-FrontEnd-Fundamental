@@ -1,25 +1,16 @@
 class AppBar extends HTMLElement {
   connectedCallback() {
     this.classList.add(
-      'navbar', 'navbar-expand-md', 'navbar-light', 'bg-light', 'sticky-top', 'top-0',
+      'navbar', 'navbar-expand-md', 'navbar-dark', 'sticky-top', 'top-0',
     );
+    this.setAttribute('style', 'transition: 0.1s all; background-color:#FF8377;');
     this.render();
   }
 
   render() {
     this.innerHTML = `
           <div class="container">
-            <a class="navbar-brand" href="/">Dery Meal</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="/">Home</a>
-                </li>
-              </ul>
-            </div>
+            <a class="navbar-brand text-uppercase" href="/">Dery Meal</a>
           </div>
         `;
   }

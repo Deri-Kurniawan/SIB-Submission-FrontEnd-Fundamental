@@ -4,9 +4,17 @@ import '../components/search-bar';
 import '../components/meal-list';
 import '../components/meal-item';
 import '../components/meal-detail-modal';
+import '../components/scroll-to-top';
+import mainEvent from '../events/event';
 
 const main = () => {
+    mainEvent();
+
+    const baseUrl = 'https://www.themealdb.com/api/json/v1/1/';
+
     $('search-bar > form').on('submit', (e) => {
+        $('meal-list').html('');
+
         const renderResult = (meals) => {
             document.querySelector("meal-list").meals = meals;
         }
@@ -18,7 +26,7 @@ const main = () => {
         const keyword = $('input#inputSearchElement').val();
         e.preventDefault();
         $.ajax({
-            url: `https://www.themealdb.com/api/json/v1/1/search.php?s=${keyword}`,
+            url: `${baseUrl}search.php?s=${keyword}`,
             method: 'GET',
             success: (responseJSON) => {
                 if (responseJSON.meals != null) {
@@ -36,24 +44,15 @@ const main = () => {
 
     $('meal-list').on('click', 'meal-item', function () {
         const mealId = $(this).data('mealid');
-        $('.modal-body').html('');
+        $('meal-detail-modal .modal-body').html('');
         $.ajax({
             method: 'GET',
-            url: `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`,
+            url: `${baseUrl}lookup.php?i=${mealId}`,
             success: (responseJSON) => {
-
                 document.querySelector('meal-detail-modal').meal = responseJSON.meals[0];
-
             }
         });
     });
-
-    $(document).ajaxStart(() => {
-        $('#loader').show();
-    }).ajaxStop(() => {
-        $('#loader').hide();
-    });
-
 };
 
 export default main;
