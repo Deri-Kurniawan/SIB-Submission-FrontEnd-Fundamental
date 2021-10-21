@@ -13,6 +13,8 @@ class MealList extends HTMLElement {
         this.setAttribute('data-bs-toggle', 'modal');
         this.setAttribute('data-bs-target', '#detailMealModal');
         this.innerHTML = '';
+        this.setAttribute('data-bs-toggle', 'modal');
+        this.setAttribute('data-bs-target', '#detailMealModal');
         this._meals.forEach((meal) => {
             const mealItemElement = document.createElement('meal-item');
             mealItemElement.classList.add("col");
