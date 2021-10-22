@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 class SearchBar extends HTMLElement {
   connectedCallback() {
     this.classList.add('mt-4');
