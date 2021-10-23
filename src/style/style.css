@@ -1,4 +1,10 @@
-.card {
+@import url('https://fonts.googleapis.com/css2?family=Charm:wght@700&display=swap');
+
+app-bar a.navbar-brand {
+    font-family: 'Charm', sans-serif;
+}
+
+meal-item div.card {
     border-radius: 4px;
     background: #fff;
     box-shadow: 0 6px 10px rgba(0, 0, 0, .08), 0 0 6px rgba(0, 0, 0, .05);
@@ -10,7 +16,7 @@
     -o-transition: .3s transform cubic-bezier(.155, 1.105, .295, 1.12), .3s box-shadow, .3s -webkit-transform cubic-bezier(.155, 1.105, .295, 1.12);
 }
 
-.card:hover {
+meal-item div.card:hover {
     transform: scale(1.05);
     box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
     -webkit-transform: scale(1.05);
@@ -18,6 +24,19 @@
     -ms-transform: scale(1.05);
     -o-transform: scale(1.05);
     opacity: 0.95;
+}
+
+meal-item div.card:hover::before {
+    position: absolute;
+    content: "i";
+    background: rgba(255, 255, 255, 0.357);
+    text-align: center;
+    right: 20px;
+    bottom: 30px;
+    font-family: 'Charm', sans-serif;
+    font-size: 1.8em;
+    line-height: 1.214;
+    color: #FF8377;
 }
 
 svg.loader {
@@ -28,9 +47,12 @@ svg.loader {
     width: 100%;
     height: 100%;
     z-index: 1;
-    /* background: rgba(255, 255, 255, 0.747); */
     -webkit-transform: scaleX(-0.3) scaleY(-0.3);
     -moz-transform: scaleX(-0.3) scaleY(-0.3);
     -ms-transform: scaleX(-0.3) scaleY(-0.3);
     -o-transform: scaleX(-0.3) scaleY(-0.3);
+}
+
+.on-loading {
+    opacity: 0.85;
 }

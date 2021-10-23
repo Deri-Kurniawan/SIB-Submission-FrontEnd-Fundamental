@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 class AppBar extends HTMLElement {
   connectedCallback() {
     this.classList.add(
@@ -9,10 +10,10 @@ class AppBar extends HTMLElement {
 
   render() {
     this.innerHTML = `
-          <div class="container">
-            <a class="navbar-brand text-uppercase" href="/">Dery Meal</a>
-          </div>
-        `;
+      <div class="container">
+        <a class="navbar-brand text-uppercase" href="/">Derizer Meal Recipes</a>
+      </div>
+    `;
   }
 }
 
