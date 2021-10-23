@@ -14,10 +14,6 @@ meal-item div.card {
     -moz-transition: .3s transform cubic-bezier(.155, 1.105, .295, 1.12), .3s box-shadow, .3s -webkit-transform cubic-bezier(.155, 1.105, .295, 1.12);
     -ms-transition: .3s transform cubic-bezier(.155, 1.105, .295, 1.12), .3s box-shadow, .3s -webkit-transform cubic-bezier(.155, 1.105, .295, 1.12);
     -o-transition: .3s transform cubic-bezier(.155, 1.105, .295, 1.12), .3s box-shadow, .3s -webkit-transform cubic-bezier(.155, 1.105, .295, 1.12);
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    -ms-border-radius: 4px;
-    -o-border-radius: 4px;
 }
 
 meal-item div.card:hover {
@@ -28,6 +24,19 @@ meal-item div.card:hover {
     -ms-transform: scale(1.05);
     -o-transform: scale(1.05);
     opacity: 0.95;
+}
+
+meal-item div.card:hover::before {
+    position: absolute;
+    content: "i";
+    background: rgba(255, 255, 255, 0.357);
+    text-align: center;
+    right: 20px;
+    bottom: 30px;
+    font-family: 'Charm', sans-serif;
+    font-size: 1.8em;
+    line-height: 1.214;
+    color: #FF8377;
 }
 
 svg.loader {
