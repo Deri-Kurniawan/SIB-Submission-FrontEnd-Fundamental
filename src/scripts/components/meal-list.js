@@ -11,6 +11,7 @@ class MealList extends HTMLElement {
   }
 
   render() {
+    this.setAttribute('title', 'click to see detail');
     this.setAttribute('data-bs-toggle', 'modal');
     this.setAttribute('data-bs-target', '#detailMealModal');
     this.innerHTML = '';
