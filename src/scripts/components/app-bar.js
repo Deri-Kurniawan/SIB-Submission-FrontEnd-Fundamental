@@ -11,7 +11,7 @@ class AppBar extends HTMLElement {
   render() {
     this.innerHTML = `
       <div class="container">
-        <a class="navbar-brand text-uppercase" href="/">Derizer Meal</a>
+        <a class="navbar-brand text-uppercase" href="/">Derizer Meal Recipes</a>
       </div>
     `;
   }
