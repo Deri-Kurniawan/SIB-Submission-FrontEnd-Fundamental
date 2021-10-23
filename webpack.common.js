@@ -2,10 +2,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 module.exports = {
-  entry: './src/app.js',
+  entry: path.resolve(__dirname, 'src/app.js'),
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
+    filename: '[name].bundle.js',
   },
   module: {
     rules: [{
@@ -21,8 +21,8 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      favicon: './src/assets/images/brand-logo.png',
-      template: './src/template.html',
+      favicon: path.resolve(__dirname, 'src/assets/images/brand-logo.png'),
+      template: path.resolve(__dirname, 'src/template.html'),
       filename: 'index.html',
     }),
   ],
