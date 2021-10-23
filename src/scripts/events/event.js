@@ -1,8 +1,8 @@
 /* eslint-disable no-restricted-globals */
 /* eslint-disable no-undef */
-import $ from 'jquery';
+const $ = require('jquery');
 
-const mainEvent = () => {
+const events = () => {
   $(document).ajaxStart(() => {
     $('svg.loader').show();
     $('body').addClass('on-loading');
@@ -17,12 +17,23 @@ const mainEvent = () => {
     } else {
       $('app-bar').removeClass('shadow');
     }
+
     if (scrollY >= (screen.height / 5)) {
       $('scroll-to-top').fadeIn();
+      $('app-bar form').fadeIn();
     } else {
       $('scroll-to-top').fadeOut();
+      $('app-bar form').fadeOut();
     }
+  });
+
+  $('input#inputSearchElement').on('input', () => {
+    $('input#inputSearchElementAlternate').val($('input#inputSearchElement').val());
+  });
+
+  $('input#inputSearchElementAlternate').on('input', () => {
+    $('input#inputSearchElement').val($('input#inputSearchElementAlternate').val());
   });
 };
 
-export default mainEvent;
+export default events;
