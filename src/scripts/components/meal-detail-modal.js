@@ -32,7 +32,7 @@ class MealDetailModal extends HTMLElement {
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-                    <h4>No Data</h4>
+                    <h6 class="text-center">No Data</h6>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Close</button>
@@ -58,7 +58,7 @@ class MealDetailModal extends HTMLElement {
             </div>
             <div class="col-12 col-md-12 col-lg-8 col-xl-8 my-sm-2 my-md-2 shadow">
                 <div class="ratio ratio-16x9">
-                  <iframe src="https://www.youtube.com/embed/${YTVideoID}" title="${this._meal.strMeal} Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  <iframe src="https://www.youtube.com/embed/${YTVideoID}" title="${this._meal.strMeal} Tutorial Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
