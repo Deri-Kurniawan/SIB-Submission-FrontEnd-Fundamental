@@ -1,12 +1,12 @@
 /* eslint-disable no-undef */
 import $ from 'jquery';
+import mainEvent from '../events/event';
 import '../components/app-bar';
 import '../components/search-bar';
 import '../components/meal-list';
 import '../components/meal-item';
 import '../components/meal-detail-modal';
 import '../components/scroll-to-top';
-import mainEvent from '../events/event';
 
 const main = () => {
   mainEvent();
