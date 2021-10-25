@@ -32,7 +32,7 @@ const searchMealsByName = (e, keyword, baseUrl) => {
       if (responseJSON.meals != null) {
         renderResult(responseJSON.meals);
       } else {
-        renderError(`Recipes by keyword <strong>${keyword}</strong> not found!`);
+        renderError(`Recipes by meal name <strong>${keyword}</strong> not found!`);
       }
     },
     error: (responseMessage) => {
