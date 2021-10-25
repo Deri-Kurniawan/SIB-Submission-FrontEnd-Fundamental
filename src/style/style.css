@@ -26,17 +26,13 @@ meal-item div.card:hover {
     opacity: 0.95;
 }
 
-meal-item div.card:hover::before {
-    position: absolute;
-    content: "i";
-    background: rgba(255, 255, 255, 0.357);
-    text-align: center;
-    right: 20px;
-    bottom: 30px;
-    font-family: 'Charm', sans-serif;
-    font-size: 1.8em;
-    line-height: 1.214;
-    color: #FF8377;
+meal-detail-modal img:hover {
+    opacity: 0.9;
+}
+
+meal-detail-modal .modal-header {
+    background: #FF8377;
+    color: #FFF;
 }
 
 svg.loader {
@@ -55,4 +51,15 @@ svg.loader {
 
 .on-loading {
     opacity: 0.85;
+}
+
+table tr th {
+    background: #FF8377 !important;
+    color: #FFF !important;
+}
+
+@media only screen and (max-width: 575px) {
+    app-bar form {
+        display: flex !important;
+    }
 }

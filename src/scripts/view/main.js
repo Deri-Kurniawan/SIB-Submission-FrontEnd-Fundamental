@@ -1,58 +1,80 @@
 /* eslint-disable no-undef */
-import $ from 'jquery';
-import mainEvent from '../events/event';
+import events from '../events/event';
 import '../components/app-bar';
 import '../components/search-bar';
 import '../components/meal-list';
 import '../components/meal-item';
 import '../components/meal-detail-modal';
 import '../components/scroll-to-top';
+import '../components/page-loader';
 
-const main = () => {
-  mainEvent();
+const $ = require('jquery');
 
-  const baseUrl = 'https://www.themealdb.com/api/json/v1/1/';
+const searchMealsByName = (e, keyword, baseUrl) => {
+  $('meal-list').html('');
 
-  $('search-bar > form').on('submit', (e) => {
-    $('meal-list').html('');
+  const renderResult = (meals) => {
+    document.querySelector('meal-list').meals = meals;
+  };
 
-    const renderResult = (meals) => {
-      document.querySelector('meal-list').meals = meals;
-    };
+  const renderError = (message) => {
+    document.querySelector('meal-list').renderError = message;
+  };
 
-    const renderError = (message) => {
-      document.querySelector('meal-list').renderError = message;
-    };
+  e.preventDefault();
 
-    const keyword = $('input#inputSearchElement').val();
-    e.preventDefault();
-    $.ajax({
-      url: `${baseUrl}search.php?s=${keyword}`,
-      method: 'GET',
-      success: (responseJSON) => {
-        if (responseJSON.meals != null) {
-          renderResult(responseJSON.meals);
-        } else {
-          renderError(`Keyword <strong>${keyword}</strong> Not Found!`);
-        }
-      },
-      error: (responseMessage) => {
-        renderError(responseMessage);
-      },
-    });
+  $.ajax({
+    url: `${baseUrl}search.php`,
+    method: 'GET',
+    data: {
+      s: keyword,
+    },
+    success: (responseJSON) => {
+      if (responseJSON.meals != null) {
+        renderResult(responseJSON.meals);
+      } else {
+        renderError(`Recipes by meal name <strong>${keyword}</strong> not found!`);
+      }
+    },
+    error: (responseMessage) => {
+      renderError(responseMessage);
+    },
   });
+};
 
+const searchMealById = (baseUrl) => {
   $('meal-list').on('click', 'meal-item', function () {
     const mealId = $(this).data('mealid');
+
     $('meal-detail-modal .modal-body').html('');
+
     $.ajax({
       method: 'GET',
-      url: `${baseUrl}lookup.php?i=${mealId}`,
+      url: `${baseUrl}lookup.php`,
+      data: {
+        i: mealId,
+      },
       success: (responseJSON) => {
         document.querySelector('meal-detail-modal').meal = responseJSON.meals[0];
       },
     });
   });
+};
+
+const main = () => {
+  events();
+
+  const baseUrl = 'https://www.themealdb.com/api/json/v1/1/';
+
+  $('search-bar form').on('submit', (e) => {
+    searchMealsByName(e, $('input#inputSearchElement').val(), baseUrl);
+  });
+
+  $('app-bar form').on('submit', (e) => {
+    searchMealsByName(e, $('input#inputSearchElementAlternate').val(), baseUrl);
+  });
+
+  searchMealById(baseUrl);
 };
 
 export default main;
