@@ -30,7 +30,7 @@ const searchMealsByName = (e, keyword, baseUrl) => {
       s: keyword,
     },
     success: (responseJSON) => {
-      if (responseJSON.meals != null) {
+      if (responseJSON.meals !== null) {
         renderResult(responseJSON.meals);
       } else {
         renderError(`Recipes by meal name <strong>${keyword}</strong> not found!`);
@@ -65,6 +65,10 @@ const main = () => {
   events();
 
   const baseUrl = 'https://www.themealdb.com/api/json/v1/1/';
+
+  window.addEventListener('load', (e) => {
+    searchMealsByName(e, '', baseUrl);
+  });
 
   $('search-bar form').on('submit', (e) => {
     searchMealsByName(e, $('input#inputSearchElement').val(), baseUrl);
