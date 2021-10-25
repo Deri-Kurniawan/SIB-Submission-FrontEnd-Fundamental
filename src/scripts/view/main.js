@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import events from '../events/event';
+import events from '../events';
 import '../components/app-bar';
 import '../components/search-bar';
 import '../components/meal-list';
