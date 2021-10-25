@@ -6,6 +6,7 @@ import '../components/meal-list';
 import '../components/meal-item';
 import '../components/meal-detail-modal';
 import '../components/scroll-to-top';
+import '../components/page-loader';
 
 const $ = require('jquery');
 
