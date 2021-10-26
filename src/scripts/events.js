@@ -3,7 +3,7 @@
 const $ = require('jquery');
 
 const events = () => {
-  $(document).ajaxStart(() => {
+  $(window).ajaxStart(() => {
     $('svg.loader').show();
     $('body').addClass('on-loading');
   }).ajaxStop(() => {
@@ -11,7 +11,7 @@ const events = () => {
     $('body').removeClass('on-loading');
   });
 
-  window.addEventListener('scroll', () => {
+  $(window).on('scroll', () => {
     if (scrollY >= 1) {
       $('app-bar').addClass('shadow');
     } else {
@@ -27,12 +27,26 @@ const events = () => {
     }
   });
 
+  $(window).on('keyup', (e) => {
+    if (e.key.toLowerCase === 'Escape'.toLowerCase) {
+      $('meal-detail-modal .modal-header .btn-close').trigger('click');
+    }
+  });
+
   $('input#inputSearchElement').on('input', () => {
     $('input#inputSearchElementAlternate').val($('input#inputSearchElement').val());
   });
 
   $('input#inputSearchElementAlternate').on('input', () => {
     $('input#inputSearchElement').val($('input#inputSearchElementAlternate').val());
+  });
+
+  $('meal-detail-modal .modal-header .btn-close').on('click', () => {
+    $('meal-detail-modal .modal-body').html('');
+  });
+
+  $('meal-detail-modal .modal-footer button.btn-danger').on('click', () => {
+    $('meal-detail-modal .modal-body').html('');
   });
 };
 
