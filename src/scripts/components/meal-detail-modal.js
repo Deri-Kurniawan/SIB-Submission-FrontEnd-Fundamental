@@ -24,7 +24,7 @@ class MealDetailModal extends HTMLElement {
 
   render() {
     this.innerHTML = `
-      <div class="modal fade" id="detailMealModal" tabindex="-1" aria-labelledby="detailMealModalLabel" aria-hidden="true">
+      <div class="modal fade" id="detailMealModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="detailMealModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-md modal-lg modal-xl">
               <div class="modal-content">
                   <div class="modal-header">
