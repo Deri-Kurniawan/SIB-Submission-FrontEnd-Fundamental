@@ -28,7 +28,7 @@ const events = () => {
   });
 
   $(window).on('keyup', (e) => {
-    if (e.key.toLowerCase === 'Escape'.toLowerCase) {
+    if (e.key.toLowerCase() === 'Escape'.toLowerCase()) {
       $('meal-detail-modal .modal-header .btn-close').trigger('click');
     }
   });
