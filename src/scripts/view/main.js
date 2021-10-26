@@ -48,7 +48,8 @@ const searchMealById = (baseUrl) => {
   $('meal-list').on('click', 'meal-item', function () {
     const mealId = $(this).data('mealid');
 
-    $('meal-detail-modal .modal-body').html('');
+    $('meal-detail-modal .modal-header h5').text('Loading...');
+    $('meal-detail-modal .modal-body').html('Loading...');
 
     $.ajax({
       method: 'GET',
