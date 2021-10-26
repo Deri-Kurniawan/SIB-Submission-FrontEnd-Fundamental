@@ -13,6 +13,8 @@ const $ = require('jquery');
 const searchMealsByName = (e, keyword, baseUrl) => {
   $('meal-list').html('');
 
+  $('meal-detail-modal .modal-body').html('');
+
   const renderResult = (meals) => {
     document.querySelector('meal-list').meals = meals;
   };
