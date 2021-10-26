@@ -11,7 +11,7 @@ class AppBar extends HTMLElement {
   render() {
     this.innerHTML = `
       <div class="container">
-        <a class="navbar-brand text-uppercase" href="">Derizer Meal Recipes</a>
+        <a class="navbar-brand text-uppercase" href="#" onclick="location.reload()">Derizer Meal Recipes</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -19,8 +19,8 @@ class AppBar extends HTMLElement {
         <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
           <div class="d-flex">
             <form class="input-group" style="display:none">
-              <input type="search" class="form-control" id="inputSearchElementAlternate" placeholder="Search by meal name">
-              <button type="submit" class="btn">🔍</button>
+              <input type="search" class="form-control shadow" id="inputSearchElementAlternate" placeholder="Search by meal name">
+              <button type="submit" class="btn btn-outline text-light shadow"><i class="fas fa-search fa-fw"></i></button>
             </form>
           </div>
         </div>
