@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import events from '../events/event';
+import events from '../events';
 import '../components/app-bar';
 import '../components/search-bar';
 import '../components/meal-list';
@@ -12,6 +12,8 @@ const $ = require('jquery');
 
 const searchMealsByName = (e, keyword, baseUrl) => {
   $('meal-list').html('');
+
+  $('meal-detail-modal .modal-body').html('');
 
   const renderResult = (meals) => {
     document.querySelector('meal-list').meals = meals;
