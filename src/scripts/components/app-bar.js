@@ -4,7 +4,7 @@ class AppBar extends HTMLElement {
     this.classList.add(
       'navbar', 'navbar-expand-sm', 'navbar-dark', 'sticky-top', 'top-0',
     );
-    this.setAttribute('style', 'transition: 0.1s all; background-color:#FF8377;');
+    this.setAttribute('style', 'background-color:#FF8377;');
     this.render();
   }
 
