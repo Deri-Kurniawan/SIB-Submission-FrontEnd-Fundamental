@@ -15,7 +15,7 @@ class ScrollToTop extends HTMLElement {
   render() {
     this._shadowRoot.innerHTML = `
       <style>
-          .scroll-top{
+          .scroll-to-top{
               -webkit-user-drag: none;
               position: fixed;
               bottom: 15px;
@@ -30,20 +30,20 @@ class ScrollToTop extends HTMLElement {
               transition: 0.1s all;
           }
           
-          .scroll-top:hover{
+          .scroll-to-top:hover{
               transition:0.2s all;
               transform: translateY(-5px);
               opacity: 0.9;
               cursor: pointer;
           }
           
-          span{
+          .scroll-to-top span{
               color: white;
               font-size: 1.5em;
           }
       </style>
       
-      <a href="#" class="scroll-top" title="back to top">
+      <a href="#" class="scroll-to-top" title="back to top">
           <span>▲</span>
       </a>
     `;
